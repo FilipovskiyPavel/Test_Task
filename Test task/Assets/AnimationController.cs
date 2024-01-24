@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
 
@@ -22,12 +20,11 @@ namespace Spine.Unity.Test
         void Update()
         {
             if ((skeletonAnimation.skeleton.ScaleX < 0) != model.facingLeft) 
-            {  // Detect changes in model.facingLeft
+            {  
                 Turn(model.facingLeft);
 
             }
 
-            // Detect changes in model.state
             SpineBeginnerBodyState currentModelState = model.state;
 
             if (previousViewState != currentModelState) 

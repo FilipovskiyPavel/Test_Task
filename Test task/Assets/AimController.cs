@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
 using Spine;
@@ -15,7 +13,7 @@ public class AimController : MonoBehaviour
 		public float distance;
 		public float maxDistance;
 		Bone bone;
-		Bone bone2;
+		// Bone bone2;
 		void OnValidate() 
 		{
 			if (skeletonAnimation == null) skeletonAnimation = GetComponent<SkeletonAnimation>();
@@ -24,7 +22,7 @@ public class AimController : MonoBehaviour
 		void Start() 
 		{
 			bone = skeletonAnimation.Skeleton.FindBone(boneName);
-			bone2 = skeletonAnimation.Skeleton.FindBone(boneName2);
+			// bone2 = skeletonAnimation.Skeleton.FindBone(boneName2);
 		}
 
 		void Update() 
