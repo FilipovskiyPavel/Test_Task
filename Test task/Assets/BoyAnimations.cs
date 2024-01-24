@@ -6,7 +6,7 @@ namespace Spine.Unity.Test
 {
     public class BoyAnimations : MonoBehaviour
     {
-        // Start is called before the first frame update
+        [HideInInspector]
         public SpineBeginnerBodyState state;
         public bool facingLeft;
         public event System.Action StartAimEvent;   // Lets other scripts know when Spineboy is aiming.

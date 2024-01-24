@@ -18,6 +18,7 @@ namespace Spine.Unity.Test
         private Vector3 mousePos;
         private Vector2 moveAxis;
         public float speed;
+        private bool aim;
         // Start is called before the first frame update
         void Start()
         {
@@ -33,13 +34,15 @@ namespace Spine.Unity.Test
             moveAxis = new Vector2(mousePos.x - transform.position.x, 0).normalized;
             speed = rb.velocity.x;
             model.SpeedTraking(rb.velocity.x * moveAxis.x);
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(1) && !aim)
             {
                 model.StartAim();
+                aim =true;
             }
-            if(Input.GetMouseButtonUp(1))
+            else if(Input.GetMouseButtonDown(1) && aim)
             {
                 model.StopAim();
+                aim = false;
             }
         }
         void FixedUpdate()

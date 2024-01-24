@@ -55,7 +55,7 @@ namespace Spine.Unity.Test
                 {
                     nextAnimation = walk;
                 }
-
+            skeletonAnimation.AnimationState.ClearTrack(1);
             skeletonAnimation.AnimationState.SetAnimation(0, nextAnimation, true);
         }
 
@@ -63,6 +63,7 @@ namespace Spine.Unity.Test
         {
             // Play the aim animation on track 2 to aim at the mouse target.
             TrackEntry aimTrack = skeletonAnimation.AnimationState.SetAnimation(2, aim, true);
+            
             aimTrack.AttachmentThreshold = 1f;
             aimTrack.MixDuration = 0f;
         }
@@ -74,10 +75,10 @@ namespace Spine.Unity.Test
 
         public void Turn(bool facingLeft) 
         {
-            skeletonAnimation.AnimationState.ClearTrack(2);
+            skeletonAnimation.AnimationState.ClearTrack(1);
             skeletonAnimation.Skeleton.ScaleX = facingLeft ? -1f : 1f;
-            TrackEntry turnTrack = skeletonAnimation.AnimationState.SetAnimation(2, turn, false);
-            skeletonAnimation.state.AddEmptyAnimation(2, 0.1f, 0);
+            TrackEntry turnTrack = skeletonAnimation.AnimationState.SetAnimation(1, turn, false);
+            skeletonAnimation.state.AddEmptyAnimation(1, 0.1f, 0);
         }
     }
 }
